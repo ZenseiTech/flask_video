@@ -17,3 +17,11 @@ http://127.0.0.1:8080/static/videos/sample_1.m3u8
 ### Javascript player to run on browser
 
 https://videojs.com/city
+
+If running with port 8080 then in your browser you can do this:
+
+http://localhost:8080
+
+http://localhost:8080/sample_1
+
+http://localhost:8080/sample_2
