@@ -7,28 +7,30 @@ app.config['SECRET_KEY'] = 'ThIs v3ry S3crat'
 port = 8080
 
 video_dict = {
+    "Default": "static/videos/ocean/sample_2.m3u8",
     "sample_1": "static/videos/coast_line/sample_1.m3u8",
     "sample_2": "static/videos/ocean/sample_2.m3u8"
 }
 
-# add a handler for the song files
+
+def get_filename(filename):
+    return video_dict.get(
+        filename, "static/videos/coast_line/sample_1.m3u8")
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', filename=get_filename("Default"))
 
 
 @app.route('/<path:filename>')
 def file(filename):
-    filename = video_dict[filename]
-    return render_template('index.html', filename=filename)
-
-# add CORS support
+    return render_template('index.html', filename=get_filename(filename))
 
 
 @app.after_request
 def add_headers(response):
+    '''Add CORS support'''
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
