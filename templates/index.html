@@ -9,7 +9,6 @@
     <div class="video-container">
         <video id="my-video" class="video-js" controls preload="auto" width="840" height="464"
             poster="static/images/me_zen.png" data-setup='{}'>
-            <!-- <source src="static/videos/coast_line/sample_1.m3u8" type="application/x-mpegURL"> -->
             <h1>The filename is: {{ filename }}</h1>
             {% if filename %}
             <source src="{{ filename }}" type="application/x-mpegURL">
@@ -20,10 +19,6 @@
     </div>
 
     <script src="static/js/video.min.js"></script>
-
-    <script>
-        var player = videojs('my-video');
-    </script>
 
 </body>
 
